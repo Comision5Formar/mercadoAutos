@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %> 
+
+<body>
+    <%- include('partials/header') %> 
+
+    <h1>Listado de Autos</h1>
+    <ul>
+        <% autos.forEach(auto=> { %>
+            <li><%= auto.marca %>  - <%= auto.modelo %> </li>
+        <% }) %>
+    </ul>
+
+
+<%- include('partials/footer') %> 
+</body>
+
+</html>

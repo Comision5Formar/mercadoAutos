@@ -1,0 +1,278 @@
+[
+  {
+    "marca": "volkswagen",
+    "modelo": "fox",
+    "anio": 2020,
+    "color": "black"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "scirocco",
+    "anio": 2020,
+    "color": "red"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "scirocco",
+    "anio": 2015,
+    "color": "white"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "golf",
+    "anio": 2016,
+    "color": "white"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "up",
+    "anio": 2020,
+    "color": "gray"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "suran",
+    "anio": 2019,
+    "color": "black"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "bora",
+    "anio": 2019,
+    "color": "black"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "voyage",
+    "anio": 2014,
+    "color": "blue"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "saveiro",
+    "anio": 2010,
+    "color": "white"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "passat",
+    "anio": 2020,
+    "color": "black"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "sharan",
+    "anio": 2019,
+    "color": "white"
+  },
+  {
+    "marca": "volkswagen",
+    "modelo": "amarok",
+    "anio": 2010,
+    "color": "gray"
+  },
+  {
+    "marca": "renault",
+    "modelo": "sandero",
+    "anio": 2019,
+    "color": "white"
+  },
+  {
+    "marca": "renault",
+    "modelo": "captur",
+    "anio": 2012,
+    "color": "black"
+  },
+  {
+    "marca": "renault",
+    "modelo": "duster",
+    "anio": 2020,
+    "color": "black"
+  },
+  {
+    "marca": "renault",
+    "modelo": "clio",
+    "anio": 2016,
+    "color": "red"
+  },
+  {
+    "marca": "renault",
+    "modelo": "kangoo",
+    "anio": 2016,
+    "color": "black"
+  },
+  {
+    "marca": "renault",
+    "modelo": "fluence",
+    "anio": 2020,
+    "color": "black"
+  },
+  {
+    "marca": "renault",
+    "modelo": "koleos",
+    "anio": 2018,
+    "color": "black"
+  },
+  {
+    "marca": "renault",
+    "modelo": "master",
+    "anio": 2015,
+    "color": "blue"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "cruze",
+    "anio": 2015,
+    "color": "red"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "spin",
+    "anio": 20120,
+    "color": "black"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "prisma",
+    "anio": 2018,
+    "color": "white"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "agile",
+    "anio": 2016,
+    "color": "gray"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "zafira",
+    "anio": 2017,
+    "color": "white"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "onix",
+    "anio": 2019,
+    "color": "red"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "spark",
+    "anio": 2018,
+    "color": "black"
+  },
+  {
+    "marca": "chevrolet",
+    "modelo": "sonic",
+    "anio": 2020,
+    "color": "white"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "208",
+    "anio": 2017,
+    "color": "black"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "307",
+    "anio": 2020,
+    "color": "gray"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "3008",
+    "anio": 2018,
+    "color": "red"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "partner",
+    "anio": 2020,
+    "color": "white"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "5008",
+    "anio": 2020,
+    "color": "brown"
+  },
+  {
+    "marca": "peugeot",
+    "modelo": "408",
+    "anio": 2016,
+    "color": "blue"
+  },
+  {
+    "marca": "ford",
+    "modelo": "fiesta",
+    "anio": 2017,
+    "color": "black"
+  },
+  {
+    "marca": "ford",
+    "modelo": "focus",
+    "anio": 2020,
+    "color": "gray"
+  },
+  {
+    "marca": "ford",
+    "modelo": "ka",
+    "anio": 2018,
+    "color": "red"
+  },
+  {
+    "marca": "ford",
+    "modelo": "kuga",
+    "anio": 2020,
+    "color": "white"
+  },
+  {
+    "marca": "ford",
+    "modelo": "ecosport",
+    "anio": 2020,
+    "color": "brown"
+  },
+  {
+    "marca": "ford",
+    "modelo": "ranger",
+    "anio": 2016,
+    "color": "blue"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "palio",
+    "anio": 2017,
+    "color": "black"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "cronos",
+    "anio": 2020,
+    "color": "gray"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "toro",
+    "anio": 2018,
+    "color": "red"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "fiorino",
+    "anio": 2020,
+    "color": "white"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "mobi",
+    "anio": 2020,
+    "color": "brown"
+  },
+  {
+    "marca": "fiesta",
+    "modelo": "argo",
+    "anio": 2016,
+    "color": "blue"
+  }
+]
