@@ -7,7 +7,13 @@ module.exports = {
             autos
         });
     },
-    detail:(req,res)=>{
-        res.render('autosDetail');
+    show:(req,res)=>{
+        let auto = autos.find(auto=>{
+            return auto.id == req.params.id
+        });
+        res.render('autosDetail',{
+            title: "Vista de detalle",
+            auto
+        });
     }
 }
