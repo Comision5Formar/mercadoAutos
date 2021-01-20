@@ -2,9 +2,11 @@
 const express = require('express'); //requiero el modulo de express
 const app = express();
 const port = 4000;
+
 const indexRouter = require('./routes/indexRouter');
 const autosRouter = require('./routes/autosRouter');
 const sucursalesRouter = require('./routes/sucursalesRouter');
+const adminRouter = require('./routes/adminRouter');
 
 /* CONFIGURACIONES */
 app.set('view engine','ejs'); //le digo a express que el motor de vistas es EJS
@@ -16,6 +18,7 @@ app.use(express.static(__dirname + '/public')); //configuro los recursos estatic
 app.use('/',indexRouter);
 app.use('/autos',autosRouter);
 app.use('/sucursales',sucursalesRouter);
+app.use('/admin',adminRouter);
 
 
 
