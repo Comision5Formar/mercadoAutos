@@ -1,5 +1,6 @@
 /* VARIABLES E IMPORTACIONES */
 const express = require('express'); //requiero el modulo de express
+const methodOverride = require('method-override');
 const app = express();
 const port = 4000;
 
@@ -13,6 +14,11 @@ app.set('view engine','ejs'); //le digo a express que el motor de vistas es EJS
 app.set('views',__dirname + '/views'); //configuro la carpeta donde van a estar guardadas las vistas
 
 app.use(express.static(__dirname + '/public')); //configuro los recursos estaticos
+
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+app.use(methodOverride('_method'));
 
 /* RUTAS */
 app.use('/',indexRouter);
