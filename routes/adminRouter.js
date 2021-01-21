@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {createCar,deleteCar,editCar,listCar,storeCar,updateCar} = require('../controllers/adminController');
+const {createCar,deleteCar,editCar,listCar,storeCar,updateCar,index} = require('../controllers/adminController');
+
+
+router.get('/index',index);
 
 router.get('/autos/list',listCar);
 
