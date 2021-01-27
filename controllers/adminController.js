@@ -1,14 +1,39 @@
-const {getAutos, setAutos} = require('../data/autos');
 const fs = require('fs');
+const path = require('path');
+const bcrypt = require('bcrypt');
+
+const {getAutos, setAutos} = require('../data/autos');
+const {getAdmins, setAdmins} = require(path.join('..','data','admins'));
 
 const autos = getAutos();
+const admins = getAdmins();
 
 module.exports = {
     register : (req,res) => {
         res.render('admin/register')
     },
     processRegister : (req,res) => {
-        res.send(req.body)
+        const {username, pass} = req.body;
+       
+        let lastID = 0;
+        admins.forEach(admin => {
+            if (admin.id > lastID) {
+                lastID = admin.id
+            }
+        });
+
+        const newAdmin = {
+            id : +lastID + 1,
+            username : username.trim(),
+            pass : pass.trim()
+        }
+
+        admins.push(newAdmin);
+
+        setAdmins(admins);
+        
+        res.redirect('/admin/login');
+
     },
     login : (req, res) => {
         res.render('admin/login')
