@@ -3,6 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 const {getAutos, setAutos} = require('../data/autos');
+const { rejects } = require('assert');
 const {getAdmins, setAdmins} = require(path.join('..','data','admins'));
 
 const autos = getAutos();
@@ -17,6 +18,14 @@ module.exports = {
        
         if(!username || !pass){
             return res.redirect('/admin/register')
+        }
+
+        let result = admins.find(admin => admin.username === username.trim());
+
+        if(result){
+            return res.render('admin/register',{
+                error : "El username ya está en uso"
+            })
         }
 
         let lastID = 0;
@@ -45,7 +54,23 @@ module.exports = {
         res.render('admin/login')
     },
     processLogin : (req,res) => {
-        res.send(req.body)
+        const {username, pass} = req.body;
+
+        let result = admins.find(admin => admin.username === username.trim());
+
+        if(result){
+            if(bcrypt.compareSync(pass.trim(),result.pass)){
+                return res.redirect('/admin/index')
+            }else{
+                res.render('admin/login',{
+                    error : "Credenciales inválidas"
+                })
+            }
+        }else{
+            res.render('admin/login',{
+                error : "Credenciales inválidas"
+            })
+        }
     },
     index : (req,res)=>{
         res.render('admin/index')
