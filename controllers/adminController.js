@@ -1,5 +1,7 @@
-const autos = require('../data/autos');
+const {getAutos, setAutos} = require('../data/autos');
 const fs = require('fs');
+
+const autos = getAutos();
 
 module.exports = {
     index : (req,res)=>{

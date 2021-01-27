@@ -1,6 +1,7 @@
 /* VARIABLES E IMPORTACIONES */
 const express = require('express'); //requiero el modulo de express
 const methodOverride = require('method-override');
+const createError = require('http-errors');
 const app = express();
 const port = 4000;
 
@@ -28,7 +29,21 @@ app.use('/admin',adminRouter);
 
 
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    next(createError(404));
+});
 
+// error handler
+app.use(function(err, req, res, next) {
+
+    res.render('error',{
+        title: err.message,
+        message : err.message,
+        status : err.status,
+        stack : err.stack
+    });
+});
 
 
 

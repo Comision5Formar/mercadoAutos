@@ -1,4 +1,6 @@
-const autos = require('../data/autos');
+const {getAutos} = require('../data/autos');
+
+const autos = getAutos();
 
 module.exports = {
     index:(req,res) => {
