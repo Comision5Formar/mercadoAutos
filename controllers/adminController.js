@@ -4,6 +4,18 @@ const fs = require('fs');
 const autos = getAutos();
 
 module.exports = {
+    register : (req,res) => {
+        res.render('admin/register')
+    },
+    processRegister : (req,res) => {
+        res.send(req.body)
+    },
+    login : (req, res) => {
+        res.render('admin/login')
+    },
+    processLogin : (req,res) => {
+        res.send(req.body)
+    },
     index : (req,res)=>{
         res.render('admin/index')
     },

@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const {createCar,deleteCar,editCar,listCar,storeCar,updateCar,index} = require('../controllers/adminController');
+const {createCar,deleteCar,editCar,listCar,storeCar,updateCar,index, register, processRegister, login, processLogin} = require('../controllers/adminController');
 
 
 router.get('/index',index);
 
+//login y register
+router.get('/register',register);
+router.post('/register',processRegister);
+
+router.get('/login',login);
+router.post('/login',processLogin);
+
+//autos
 router.get('/autos/list',listCar);
 
 router.get('/autos/create',createCar);
