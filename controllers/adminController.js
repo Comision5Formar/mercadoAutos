@@ -15,6 +15,10 @@ module.exports = {
     processRegister : (req,res) => {
         const {username, pass} = req.body;
        
+        if(!username || !pass){
+            return res.redirect('/admin/register')
+        }
+
         let lastID = 0;
         admins.forEach(admin => {
             if (admin.id > lastID) {
@@ -22,10 +26,12 @@ module.exports = {
             }
         });
 
+        let passHash = bcrypt.hashSync(pass.trim(),12)
+
         const newAdmin = {
             id : +lastID + 1,
             username : username.trim(),
-            pass : pass.trim()
+            pass : passHash
         }
 
         admins.push(newAdmin);
