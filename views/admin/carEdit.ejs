@@ -5,7 +5,7 @@
     <%- include('./partials/header')  %> 
 
     <div class="container">
-        <form action="/admin/autos/update/<%= auto.id %>?_method=PUT" method="POST">
+        <form action="/admin/autos/update/<%= auto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <h3>Agregar</h3>
             <hr>
             <div class="row">
@@ -35,8 +35,11 @@
               </div>
               <div class="col-lg-6">
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="imagen" placeholder="imagen" name="img" value="<%= auto.img %> ">
-                  <label for="imagen">Imagen</label>
+                  <div class="">
+                    
+                    <input class="form-control" type="file" id="formFile" name="img">
+                    <label for="" class="text-right"><%= auto.img %></label>
+                  </div>
                 </div>
               </div>
             

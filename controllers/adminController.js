@@ -3,7 +3,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 
 const {getAutos, setAutos} = require('../data/autos');
-const { rejects } = require('assert');
 const {getAdmins, setAdmins} = require(path.join('..','data','admins'));
 
 const autos = getAutos();
@@ -83,8 +82,9 @@ module.exports = {
     createCar : (req,res)=> {
         res.render('admin/carCreate')
     },
-    storeCar : (req,res) => {
-        let lastID = 1;
+    storeCar : (req,res,next) => {
+
+        let lastID = 0;
         autos.forEach(auto => {
             if (auto.id > lastID) {
                 lastID = auto.id
@@ -99,12 +99,11 @@ module.exports = {
             modelo,
             anio,
             color,
-            img
+            img : req.files[0].filename
         }
 
         autos.push(auto);
-        fs.writeFileSync('./data/autos.json',JSON.stringify(autos),'utf-8');
-
+        setAutos(autos);
         res.redirect('/admin/autos/list');
     },
     editCar : (req,res) => {
@@ -116,22 +115,27 @@ module.exports = {
             auto
         })
     },
-    updateCar : (req,res) => {
+    updateCar : (req,res,next) => {
 
         const {marca, modelo, anio, color, img} = req.body;
 
         autos.forEach(auto => {
             if(auto.id === +req.params.id){
+
+                if(fs.existsSync(path.join('public','images','cars',auto.img))){
+                    fs.unlinkSync(path.join('public','images','cars',auto.img));
+                }
+
                 auto.id = +req.params.id;
                 auto.marca = marca;
                 auto.modelo = modelo;
                 auto.anio = anio;
                 auto.color = color;
-                auto.img = img
+                auto.img = req.files[0].filename
             }
         });
 
-        fs.writeFileSync('./data/autos.json',JSON.stringify(autos),'utf-8');
+        setAutos(autos);
 
         res.redirect('/admin/autos/list');
     },
@@ -139,12 +143,16 @@ module.exports = {
 
         autos.forEach(auto => {
             if(auto.id === +req.params.id){
+
+                if(fs.existsSync(path.join('public','images','cars',auto.img))){
+                    fs.unlinkSync(path.join('public','images','cars',auto.img));
+                }
                 let eliminar = autos.indexOf(auto);
-                autos.splice(eliminar,1)
+                autos.splice(eliminar,1);
             }
         });
 
-        fs.writeFileSync('./data/autos.json',JSON.stringify(autos),'utf-8');
+        setAutos(autos);
 
         res.redirect('/admin/autos/list');
     }
