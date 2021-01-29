@@ -1,26 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
-const {check, validationResult, body} = require('express-validator');
+const validationRegisterAdmin = require('../validations/validationRegisterAdmin')
+const validationLoginAdmin = require('../validations/vadlidationLoginAdmin')
 
 const {createCar,deleteCar,editCar,listCar,storeCar,updateCar,index, register, processRegister, login, processLogin} = require('../controllers/adminController');
 
-const upload = require(path.join('..','utils','multerAutos'))
+const upload = require('../utils/multerAutos')
 
 router.get('/index',index);
 
 //login y register
 router.get('/register',register);
-router.post('/register',[
-    check('username')
-        .isLength({
-            min: 4
-        })
-], processRegister);
+router.post('/register',validationRegisterAdmin, processRegister);
 
 router.get('/login',login);
-router.post('/login',processLogin);
+router.post('/login',validationLoginAdmin, processLogin);
 
 //autos
 router.get('/autos/list',listCar);

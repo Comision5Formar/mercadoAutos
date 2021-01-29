@@ -12,12 +12,15 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
                             <label for="floatingInput">Username</label>
+                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
                           </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-floating">
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
                             <label for="floatingPassword">Password</label>
+                            <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "" %> </span>
+
                           </div>
                     </div>
                     <div class="col-12 col-md-6 my-4">
@@ -31,12 +34,7 @@
                         <div class="form-floating">
                             <p>¿No estás registrado? <a href="/admin/register">Registrate</a></p>
                           </div>
-                    </div>
-                    <% if (typeof error != 'undefined') { %>
-                        <div class="alert alert-danger">
-                            <span><%= error %> </span>
                         </div>
-                    <% } %>
                     
                 </div>
             </div>

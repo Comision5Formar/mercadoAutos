@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const {validationResult} = require('express-validator');
+
 
 const {getAutos, setAutos} = require('../data/autos');
 const {getAdmins, setAdmins} = require(path.join('..','data','admins'));
@@ -13,19 +15,15 @@ module.exports = {
         res.render('admin/register')
     },
     processRegister : (req,res) => {
-        const {username, pass} = req.body;
-       
-        if(!username || !pass){
-            return res.redirect('/admin/register')
-        }
+        let errores = validationResult(req);
 
-        let result = admins.find(admin => admin.username === username.trim());
-
-        if(result){
+        if(!errores.isEmpty()){
             return res.render('admin/register',{
-                error : "El username ya está en uso"
+                errores : errores.mapped()
             })
         }
+
+        const {username, pass} = req.body;
 
         let lastID = 0;
         admins.forEach(admin => {
@@ -53,6 +51,15 @@ module.exports = {
         res.render('admin/login')
     },
     processLogin : (req,res) => {
+
+        let errores = validationResult(req);
+        
+        if(!errores.isEmpty()){
+            return res.render('admin/login',{
+                errores : errores.mapped()
+            })
+        }
+
         const {username, pass} = req.body;
 
         let result = admins.find(admin => admin.username === username.trim());

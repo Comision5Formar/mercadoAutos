@@ -28,5 +28,15 @@
     "id": 6,
     "username": "Jose",
     "pass": "$2b$12$kUpHGwqCDpVY/wXGyzwYl.i5fsaiYwTMqvswMTQa7/FgzMJcXAqOm"
+  },
+  {
+    "id": 7,
+    "username": "Marcelo",
+    "pass": "$2b$12$ngT00rZCGByimVVN3sLWSOJs2qsF5jAZ9TFQPkNxJzchgdPXAj9/y"
+  },
+  {
+    "id": 8,
+    "username": "Segio",
+    "pass": "$2b$12$.xbivXAy2In8fcu8DB/Piey2j4.ITEYwwO0BA2pQ1cx2nynoIGnSm"
   }
 ]
