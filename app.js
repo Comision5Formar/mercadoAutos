@@ -1,9 +1,15 @@
 /* VARIABLES E IMPORTACIONES */
 const express = require('express'); //requiero el modulo de express
 const methodOverride = require('method-override');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const app = express();
 const port = 4000;
+
+const localsCheck = require('./middlewares/localsCheck');
+const cookieCheck = require('./middlewares/cookieCheck');
+
 
 const indexRouter = require('./routes/indexRouter');
 const autosRouter = require('./routes/autosRouter');
@@ -20,6 +26,13 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 app.use(methodOverride('_method'));
+app.use(session({
+    secret : "mercadoAuto for ever!!"
+}));
+app.use(cookieParser());
+
+app.use(localsCheck);
+app.use(cookieCheck);
 
 /* RUTAS */
 app.use('/',indexRouter);

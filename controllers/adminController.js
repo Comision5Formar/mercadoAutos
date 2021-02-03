@@ -60,23 +60,46 @@ module.exports = {
             })
         }
 
-        const {username, pass} = req.body;
+        const {username, pass, recordar} = req.body;
 
         let result = admins.find(admin => admin.username === username.trim());
 
         if(result){
             if(bcrypt.compareSync(pass.trim(),result.pass)){
+
+                req.session.userAdmin = {
+                    id : result.id,
+                    username : result.username
+                }
+
+                if(recordar != 'undefined'){
+                    res.cookie('userAdmin',req.session.userAdmin,{
+                        maxAge : 1000 * 60
+                    })
+                }
+
                 return res.redirect('/admin/index')
-            }else{
-                res.render('admin/login',{
-                    error : "Credenciales inválidas"
-                })
             }
-        }else{
-            res.render('admin/login',{
-                error : "Credenciales inválidas"
-            })
         }
+
+        res.render('admin/login',{
+            errores : {
+               error : {
+                   msg : "Credenciales inválidas"
+               } 
+            }
+        })
+
+    },
+    logout : (req, res) => {
+
+        if(req.cookies.userAdmin){ //chequeo que la cookie exista
+            res.cookie('userAdmin','',{maxAge:-1}); //borro la cookie
+        }
+        delete req.session.userAdmin
+
+        //req.session.destroy();
+        res.redirect('/')
     },
     index : (req,res)=>{
         res.render('admin/index')
