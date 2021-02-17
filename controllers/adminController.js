@@ -6,45 +6,40 @@ const {validationResult} = require('express-validator');
 
 const {getAutos, setAutos} = require('../data/autos');
 const {getAdmins, setAdmins} = require(path.join('..','data','admins'));
-
 const autos = getAutos();
 const admins = getAdmins();
+
+const db = require('../database/models');
 
 module.exports = {
     register : (req,res) => {
         res.render('admin/register')
     },
     processRegister : (req,res) => {
-        let errores = validationResult(req);
+        //let errores = validationResult(req);
 
-        if(!errores.isEmpty()){
+    /*     if(!errores.isEmpty()){
             return res.render('admin/register',{
                 errores : errores.mapped()
             })
-        }
+        } */
+        const {nombre, apellido, email, password, fecha_nac} = req.body;
 
-        const {username, pass} = req.body;
+        let passHash = bcrypt.hashSync(password.trim(),12)
 
-        let lastID = 0;
-        admins.forEach(admin => {
-            if (admin.id > lastID) {
-                lastID = admin.id
-            }
-        });
 
-        let passHash = bcrypt.hashSync(pass.trim(),12)
-
-        const newAdmin = {
-            id : +lastID + 1,
-            username : username.trim(),
-            pass : passHash
-        }
-
-        admins.push(newAdmin);
-
-        setAdmins(admins);
-        
-        res.redirect('/admin/login');
+        db.usuarios.create({
+            nombre : nombre.trim(),
+            apellido : apellido.trim(),
+            email : email.trim(),
+            password : passHash,
+            fecha_nac
+        })
+        .then(result => {
+            console.log(result)
+            return res.redirect('/admin/login');
+        })
+        .catch(errores => console.log(errores))
 
     },
     login : (req, res) => {

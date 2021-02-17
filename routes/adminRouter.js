@@ -14,10 +14,10 @@ router.get('/index',adminCheck, index);
 
 //login y register
 router.get('/register',register);
-router.post('/register',validationRegisterAdmin, processRegister);
+router.post('/register', processRegister);
 
 router.get('/login',login);
-router.post('/login',validationLoginAdmin, processLogin);
+router.post('/login', processLogin);
 
 router.get('/logout',logout);
 

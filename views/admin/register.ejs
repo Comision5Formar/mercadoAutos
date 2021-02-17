@@ -11,16 +11,40 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Username"
-                                    name="username" />
-                                <label for="floatingInput">Username</label>
+                                    name="nombre" />
+                                <label for="floatingInput">Nombre</label>
+                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Username"
+                                    name="apellido" />
+                                <label for="floatingInput">Apellido</label>
+                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="Username"
+                                    name="email" />
+                                <label for="floatingInput">Email</label>
                                 <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                                    name="pass" />
+                                    name="password" />
                                 <label for="floatingPassword">Password</label>
+                                <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "" %> </span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-floating">
+                                <input type="date" class="form-control" id="floatingPassword" placeholder="Password"
+                                    name="fecha_nac" />
+                                <label for="floatingPassword">Fecha de nacimiento</label>
                                 <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "" %> </span>
                             </div>
                         </div>
